@@ -54,7 +54,7 @@ def propagate(w, b, X, Y):
     return grads, cost
 
 
-def optimize(w, b, X, Y, num_iterations, learning_rate, print_cost = False):
+def opt(w, b, X, Y, num_iterations, learning_rate, print_cost = False):
     costs = []
     for i in range(num_iterations):
         grads, cost = propagate(w, b, X, Y)
@@ -91,7 +91,7 @@ def predict(w, b, X):
 def model(X_train, Y_train, X_test, Y_test, num_iterations = 2000, learning_rate = 0.5, print_cost = False):
     w,b = initialize_with_zeros(X_train.shape[0])
 
-    parameters, grads, costs = optimize(w, b, X_train, Y_train, num_iterations, learning_rate, print_cost)
+    parameters, grads, costs = opt(w, b, X_train, Y_train, num_iterations, learning_rate, print_cost)
 
     w = parameters["w"]
     b = parameters["b"]
