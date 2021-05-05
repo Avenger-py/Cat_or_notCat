@@ -23,7 +23,7 @@ train_set_x = train_set_x_flatten/255.
 test_set_x = test_set_x_flatten/255.
 
 
-def sigmoid(z):
+def sig(z):
     s = np.exp(z)/(1 + np.exp(z))
     return s
 
@@ -38,7 +38,7 @@ def initialize_with_zeros(dim):
 
 def propagate(w, b, X, Y):
     m = X.shape[1]
-    A = sigmoid(np.dot(w.T, X) + b)
+    A = sig(np.dot(w.T, X) + b)
     cost = (-1/m)*np.sum(Y*np.log(A) + (1-Y)*np.log(1-A))
 
     dz = A - Y
@@ -79,7 +79,7 @@ def predict(w, b, X):
     m = X.shape[1]
     y_prediction = np.zeros((1, m))
     w = w.reshape(X.shape[0], 1)
-    A = sigmoid(np.dot(w.T, X) + b)
+    A = sig(np.dot(w.T, X) + b)
     for i in range(A.shape[1]):
         y_prediction[:, i] = (A[:, i] > 0.5) * 1
 
