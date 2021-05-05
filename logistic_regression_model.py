@@ -11,9 +11,6 @@ import scipy.misc
 train_set_x_orig, train_set_y, test_set_x_orig, test_set_y, classes = load_dataset()
 index = 7
 
-m_train = train_set_x_orig.shape[0]
-m_test = test_set_x_orig.shape[0]
-num_px = train_set_x_orig.shape[1]
 
 train_set_x_flatten = train_set_x_orig.reshape(train_set_x_orig.shape[0], -1).T
 test_set_x_flatten = test_set_x_orig.reshape(test_set_x_orig.shape[0], -1).T
